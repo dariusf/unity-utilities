@@ -10,7 +10,11 @@ static class ListExtensions {
 		other.RemoveRange(number, list.Count - number);
 		return other;
 	}
-
+	
+	public static T PickRandomElement<T>(this IList<T> list) {
+		return new List<T>(list.PickRandom(1))[0];
+	}
+	
 	public static void Shuffle<T>(this IList<T> list) {  
 		System.Random rng = new System.Random();
 		int n = list.Count;
